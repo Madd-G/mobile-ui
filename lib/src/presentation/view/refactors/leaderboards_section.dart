@@ -1,6 +1,6 @@
-import 'package:fe_ordo/core/res/res.dart';
-import 'package:fe_ordo/core/utils/custom_text_style.dart';
-import 'package:fe_ordo/src/presentation/controller/controllers.dart';
+import 'package:AKHMAD_NUR_ALAMSYAH_MOBILE_FE_ORDO/core/res/res.dart';
+import 'package:AKHMAD_NUR_ALAMSYAH_MOBILE_FE_ORDO/core/utils/custom_text_style.dart';
+import 'package:AKHMAD_NUR_ALAMSYAH_MOBILE_FE_ORDO/src/presentation/controller/controllers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

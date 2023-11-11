@@ -1,5 +1,5 @@
-import 'package:fe_ordo/core/res/res.dart';
-import 'package:fe_ordo/src/presentation/model/models.dart';
+import 'package:AKHMAD_NUR_ALAMSYAH_MOBILE_FE_ORDO/core/res/res.dart';
+import 'package:AKHMAD_NUR_ALAMSYAH_MOBILE_FE_ORDO/src/presentation/model/models.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {

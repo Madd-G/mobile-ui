@@ -1,4 +1,4 @@
-import 'package:fe_ordo/core/utils/bottom_nav_bar.dart';
+import 'package:AKHMAD_NUR_ALAMSYAH_MOBILE_FE_ORDO/core/utils/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/utils/theme.dart';
