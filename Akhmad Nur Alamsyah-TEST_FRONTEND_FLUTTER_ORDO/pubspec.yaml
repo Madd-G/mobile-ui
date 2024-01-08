@@ -1,0 +1,73 @@
+name: flutter_ordo
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0-152.0.dev <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.9
+  get: ^4.6.6
+  expandable_page_view: ^1.0.17
+
+#flutter_icons:
+#  android: true
+#  ios: true
+#  image_path: "assets/images/logo.png"
+#  adaptive_icon_background: "#FFFFFF"
+#  adaptive_icon_foreground: "assets/images/logo.png"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  flutter_native_splash: ^2.3.9
+#  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/outfit/Outfit-Light.ttf
+        - asset: assets/fonts/outfit/Outfit-Regular.ttf
+        - asset: assets/fonts/outfit/Outfit-Medium.ttf
+        - asset: assets/fonts/outfit/Outfit-SemiBold.ttf
+        - asset: assets/fonts/outfit/Outfit-Bold.ttf
+
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/lexend/Lexend-Light.ttf
+        - asset: assets/fonts/lexend/Lexend-Regular.ttf
+        - asset: assets/fonts/lexend/Lexend-Medium.ttf
+        - asset: assets/fonts/lexend/Lexend-SemiBold.ttf
+        - asset: assets/fonts/lexend/Lexend-Bold.ttf
+
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/rubik/Rubik-Light.ttf
+        - asset: assets/fonts/rubik/Rubik-Regular.ttf
+        - asset: assets/fonts/rubik/Rubik-Medium.ttf
+        - asset: assets/fonts/rubik/Rubik-SemiBold.ttf
+        - asset: assets/fonts/rubik/Rubik-Bold.ttf
