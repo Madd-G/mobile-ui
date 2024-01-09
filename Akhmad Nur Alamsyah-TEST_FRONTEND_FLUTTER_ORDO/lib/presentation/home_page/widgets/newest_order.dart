@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ordo/common/res/media_res.dart';
 import 'package:flutter_ordo/common/style/color.dart';
 import 'package:flutter_ordo/common/utils/custom_text_style.dart';
+import 'package:flutter_ordo/common/widgets/widgets.dart';
 import 'package:flutter_ordo/presentation/home_page/index.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -46,7 +47,6 @@ class NewestOrder extends GetView<HomeController> {
           ),
           const SizedBox(height: 20.0),
           Container(
-            // height: 56.0,
             decoration: const BoxDecoration(
               color: AppColors.baseWhite,
               borderRadius: BorderRadius.all(Radius.circular(10.0)),

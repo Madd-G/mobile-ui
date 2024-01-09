@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ordo/common/entities/entities.dart';
 import 'package:flutter_ordo/common/res/media_res.dart';
 import 'package:flutter_ordo/common/style/color.dart';
-import 'package:flutter_ordo/common/utils/custom_text_style.dart';
+import 'package:flutter_ordo/common/utils/utils.dart';
 import 'package:flutter_ordo/presentation/home_page/index.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -61,7 +61,7 @@ class MenuSection extends GetView<HomeController> {
               itemCount: 4,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
-                Menu menu = controller.menus[index];
+                Menu menu = Data.menuList[index];
                 return MenuCard(
                   title: menu.title,
                   progress: menu.progress,

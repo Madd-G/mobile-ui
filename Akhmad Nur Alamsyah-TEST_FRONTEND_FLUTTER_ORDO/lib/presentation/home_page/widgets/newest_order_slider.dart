@@ -4,7 +4,7 @@ import 'package:flutter_ordo/common/entities/entities.dart';
 import 'package:flutter_ordo/common/extensions/int_extension.dart';
 import 'package:flutter_ordo/common/res/media_res.dart';
 import 'package:flutter_ordo/common/style/color.dart';
-import 'package:flutter_ordo/common/utils/custom_text_style.dart';
+import 'package:flutter_ordo/common/utils/utils.dart';
 import 'package:flutter_ordo/common/widgets/widgets.dart';
 import 'package:flutter_ordo/presentation/home_page/controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,27 +22,25 @@ class NewestOrderSlider extends GetView<HomeController> {
       children: [
         ExpandablePageView.builder(
           onPageChanged: (index) {
-            controller.currentIndex.value = index;
+            controller.state.currentIndex.value = index;
           },
-          itemCount: controller.orders.length,
+          itemCount: Data.orderList.length,
           itemBuilder: (context, index) {
-            Order order = controller.orders[index];
+            Order order = Data.orderList[index];
             return OrderSliderItem(order: order);
           },
         ),
         const SizedBox(height: 10.0),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for (int i = 0; i < 3; i++)
-                Obx(
-                  () => OrderIndicatorBar(
-                    isActive: controller.currentIndex.value == i,
-                  ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            for (int i = 0; i < 3; i++)
+              Obx(
+                () => OrderIndicatorBar(
+                  isActive: controller.state.currentIndex.value == i,
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ],
     );
@@ -59,7 +57,6 @@ class OrderSliderItem extends GetView<HomeController> {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Container(
-        // height: (order.isLate) ? 185.0 : 144.0,
         decoration: BoxDecoration(
           color: AppColors.baseWhite,
           borderRadius: BorderRadius.circular(12.0),
@@ -100,7 +97,6 @@ class OrderSliderItem extends GetView<HomeController> {
               Row(
                 children: [
                   Container(
-                    // height: 85.0,
                     width: 100.0,
                     decoration: const BoxDecoration(
                       color: AppColors.baseDark,

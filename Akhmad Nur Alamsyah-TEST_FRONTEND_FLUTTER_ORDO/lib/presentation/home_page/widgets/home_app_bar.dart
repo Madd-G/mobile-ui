@@ -20,7 +20,7 @@ class HomeAppBar extends GetView<HomeController> {
       expandedHeight: 0.0,
       stretch: true,
       bottom: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.15),
+          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.12),
           child: Padding(
             padding: const EdgeInsets.only(
                 left: 25.0, right: 25.0, bottom: 10.0),
@@ -33,8 +33,8 @@ class HomeAppBar extends GetView<HomeController> {
                       borderRadius: BorderRadius.circular(60.0),
                       child: Image.asset(
                         MediaRes.profile,
-                        width: 70,
-                        height: 70,
+                        width: 60,
+                        height: 60,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -46,7 +46,7 @@ class HomeAppBar extends GetView<HomeController> {
                         Text(
                           'Temukan\nHunian Impian',
                           style:
-                              CustomTextStyle.textLargeSemiBold.copyWith(
+                              CustomTextStyle.textExtraLargeSemiBold.copyWith(
                             color: AppColors.textPrimary,
                           ),
                         ),

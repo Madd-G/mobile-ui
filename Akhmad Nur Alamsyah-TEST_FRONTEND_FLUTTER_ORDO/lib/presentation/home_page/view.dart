@@ -14,8 +14,8 @@ class HomePage extends GetView<HomeController> {
           slivers: <Widget>[
             const HomeAppBar(),
             const SliverToBoxAdapter(child: SizedBox(height: 30.0)),
-            HomeBanner(),
-            (controller.isEmpty.value) ? const NoOrder() : const WithOrder(),
+            const HomeBanner(),
+            (controller.state.isEmpty.value) ? const NoOrder() : const WithOrder(),
           ],
         ),
       ),

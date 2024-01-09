@@ -5,21 +5,8 @@ import 'package:flutter_ordo/common/utils/custom_text_style.dart';
 import 'package:flutter_ordo/common/widgets/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomStepper extends StatefulWidget {
+class CustomStepper extends StatelessWidget {
   const CustomStepper({super.key});
-
-  @override
-  State<CustomStepper> createState() => _CustomStepperState();
-}
-
-class _CustomStepperState extends State<CustomStepper> {
-  final PageController _pageController = PageController();
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +55,6 @@ class StepperComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //now let's remove the ligne at the end of the row but also we need to remove unnecessary padding thus we need to remove the expanded
-    //widget
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,8 +63,8 @@ class StepperComponent extends StatelessWidget {
           Row(
             children: [
               Container(
-                width: 15,
-                height: 15,
+                width: 12.5,
+                height: 12.5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                 ),
@@ -108,6 +93,7 @@ class StepperComponent extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 4.0),
           Text(
             title,
             style: CustomTextStyle.textExtraSmallRegular.copyWith(
