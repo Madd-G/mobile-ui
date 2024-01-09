@@ -10,6 +10,10 @@ class Data {
 
   static List<String> get bannerList => _bannerList;
 
+  static List<String> get activeIcon => _activeIcons;
+
+  static List<String> get inActiveIcon => _inActiveIcons;
+
   static final List<Menu> _menuList = [
     Menu(title: 'Pemesanan', image: MediaRes.menu1, progress: 100, phase: 1),
     Menu(title: 'Administrasi', image: MediaRes.menu2, progress: 50, phase: 2),
@@ -61,4 +65,20 @@ class Data {
   ];
 
   static final List<String> _bannerList = [MediaRes.banner1, MediaRes.banner4];
+
+  static final List<String> _activeIcons = [
+    MediaRes.homeFilled,
+    MediaRes.buildingFilled,
+    MediaRes.documentFilled,
+    MediaRes.cartFilled,
+    MediaRes.userFilled,
+  ];
+
+  static final List<String> _inActiveIcons = [
+    MediaRes.home,
+    MediaRes.building,
+    MediaRes.document,
+    MediaRes.cart,
+    MediaRes.user,
+  ];
 }

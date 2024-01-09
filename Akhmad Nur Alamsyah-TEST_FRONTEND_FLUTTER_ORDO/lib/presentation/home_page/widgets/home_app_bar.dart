@@ -20,10 +20,11 @@ class HomeAppBar extends GetView<HomeController> {
       expandedHeight: 0.0,
       stretch: true,
       bottom: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.12),
+          preferredSize:
+              Size.fromHeight(MediaQuery.of(context).size.height * 0.12),
           child: Padding(
-            padding: const EdgeInsets.only(
-                left: 25.0, right: 25.0, bottom: 10.0),
+            padding:
+                const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

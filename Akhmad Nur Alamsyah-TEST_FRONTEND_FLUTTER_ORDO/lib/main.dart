@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
+      onGenerateRoute: AppPages.onGenerateRoute,
+      defaultTransition: Transition.noTransition,
     );
   }
 }

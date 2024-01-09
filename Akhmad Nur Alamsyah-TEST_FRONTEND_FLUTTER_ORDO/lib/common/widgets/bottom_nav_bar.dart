@@ -1,37 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ordo/common/res/media_res.dart';
+import 'package:flutter_ordo/common/routes/names.dart';
+import 'package:flutter_ordo/common/routes/pages.dart';
 import 'package:flutter_ordo/common/style/color.dart';
+import 'package:flutter_ordo/common/utils/utils.dart';
+import 'package:flutter_ordo/presentation/home_page/binding.dart';
 import 'package:flutter_ordo/presentation/home_page/index.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class BottomNavBar extends StatelessWidget {
-  final BottomNavigationController bottomNavigationController =
-      Get.put(BottomNavigationController());
-
-  final List<String> activeIcons = [
-    MediaRes.homeFilled,
-    MediaRes.buildingFilled,
-    MediaRes.documentFilled,
-    MediaRes.cartFilled,
-    MediaRes.userFilled,
-  ];
-
-  final List<String> inactiveIcons = [
-    MediaRes.home,
-    MediaRes.building,
-    MediaRes.document,
-    MediaRes.cart,
-    MediaRes.user,
-  ];
-
-  BottomNavBar({super.key});
+class BottomNavBar extends GetView<BottomNavBarController> {
+  const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(
-        () => _getPage(bottomNavigationController.selectedIndex.value),
+      body: Navigator(
+        key: Get.nestedKey(1),
+        initialRoute: AppPages.home,
+        onGenerateRoute: controller.onGenerateRoute,
       ),
       bottomNavigationBar: Obx(
         () => Container(
@@ -43,18 +30,17 @@ class BottomNavBar extends StatelessWidget {
             children: List.generate(
               5,
               (index) {
-                bool isActive =
-                    bottomNavigationController.selectedIndex.value == index;
+                bool isActive = controller.state.selectedIndex.value == index;
                 return GestureDetector(
                   onTap: () {
-                    bottomNavigationController.changePage(index);
+                    controller.changePage(index);
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       (isActive)
                           ? SvgPicture.asset(
-                              activeIcons[index],
+                              Data.activeIcon[index],
                               colorFilter: const ColorFilter.mode(
                                 AppColors.baseDark,
                                 BlendMode.srcIn,
@@ -63,7 +49,7 @@ class BottomNavBar extends StatelessWidget {
                               width: 24.0,
                             )
                           : SvgPicture.asset(
-                              inactiveIcons[index],
+                              Data.inActiveIcon[index],
                               colorFilter: const ColorFilter.mode(
                                 AppColors.gray200,
                                 BlendMode.srcIn,
@@ -88,29 +74,69 @@ class BottomNavBar extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _getPage(int index) {
-    switch (index) {
-      case 0:
-        return const HomePage();
-      case 1:
-        return const Center(child: Text('Page 2'));
-      case 2:
-        return const Center(child: Text('Page 3'));
-      case 3:
-        return const Center(child: Text('Page 4'));
-      case 4:
-        return const Center(child: Text('Page 5'));
-      default:
-        return const Center(child: Text('Unknown Page'));
+class BottomNavBarController extends GetxController {
+  BottomNavBarController();
+
+  final BottomNavBarState state = BottomNavBarState();
+
+  void changePage(int index) {
+    state.selectedIndex.value = index;
+    Get.toNamed(state.pages[index], id: 1);
+  }
+
+  Route? onGenerateRoute(RouteSettings settings) {
+    if (settings.name == AppRoute.home) {
+      return GetPageRoute(
+        settings: settings,
+        page: () => const HomePage(),
+        binding: HomeBinding(),
+      );
     }
+    if (settings.name == AppRoute.second) {
+      return GetPageRoute(
+        settings: settings,
+        page: () => const Scaffold(body: Text('Second')),
+      );
+    }
+    if (settings.name == AppRoute.third) {
+      return GetPageRoute(
+        settings: settings,
+        page: () => const Scaffold(body: Text('Third')),
+      );
+    }
+    if (settings.name == AppRoute.fourth) {
+      return GetPageRoute(
+        settings: settings,
+        page: () => const Scaffold(body: Text('Fourth')),
+      );
+    }
+    if (settings.name == AppRoute.fifth) {
+      return GetPageRoute(
+        settings: settings,
+        page: () => const Scaffold(body: Text('Fifth')),
+      );
+    }
+
+    return null;
   }
 }
 
-class BottomNavigationController extends GetxController {
-  var selectedIndex = 0.obs;
-
-  void changePage(int index) {
-    selectedIndex.value = index;
+class BottomNavBarBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => BottomNavBarController());
   }
+}
+
+class BottomNavBarState {
+  var selectedIndex = 0.obs;
+  final pages = <String>[
+    AppRoute.home,
+    AppRoute.second,
+    AppRoute.third,
+    AppRoute.fourth,
+    AppRoute.fifth
+  ];
 }

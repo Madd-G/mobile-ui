@@ -15,7 +15,9 @@ class HomePage extends GetView<HomeController> {
             const HomeAppBar(),
             const SliverToBoxAdapter(child: SizedBox(height: 30.0)),
             const HomeBanner(),
-            (controller.state.isEmpty.value) ? const NoOrder() : const WithOrder(),
+            (controller.state.isEmpty.value)
+                ? const NoOrder()
+                : const WithOrder(),
           ],
         ),
       ),
